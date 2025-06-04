@@ -1,0 +1,39 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Daniyar",
+        "icon": "CircleUser",
+        "messages": [
+          { "text": "Hi there!", "timestamp": 1717492040000, "sender": "Daniyar" },
+          { "text": "How are you?", "timestamp": 1717492200000, "sender": "Daniyar" },
+          { "text": "I'm fine, thanks!", "timestamp": 1717492260000, "sender": "me" }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Muslim",
+        "icon": "CircleUser",
+        "messages": [
+          { "text": "Hey!", "timestamp": 1717493000000, "sender": "Muslim" },
+          { "text": "What's up?", "timestamp": 1717493100000, "sender": "me" }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Ilya",
+        "icon": "CircleUser",
+        "messages": []
+      },
+      {
+        "id": 4,
+        "name": "Akbota",
+        "icon": "CircleUser",
+        "messages": [
+          { "text": "Let's meet tomorrow.", "timestamp": 1717494000000, "sender": "Akbota" },
+          { "text": "Sure, what time?", "timestamp": 1717494060000, "sender": "me" }
+        ]
+      }
+    ]
+  }
+  
