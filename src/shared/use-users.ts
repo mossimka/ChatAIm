@@ -7,7 +7,7 @@ type Message = {
 };
 
 type User = {
-  id: number;
+  id: string;
   name: string;
   gender: string;
   icon: string;
@@ -16,6 +16,7 @@ type User = {
 
 const API_URL = 'http://localhost:3000';
 
+/** Fetch all users */
 export function useUsers() {
   return useQuery<User[]>({
     queryKey: ['users'],

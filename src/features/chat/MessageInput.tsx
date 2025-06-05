@@ -7,7 +7,12 @@ type MessageInputProps = {
 export default function MessageInput({ onSend }: MessageInputProps) {
   const [value, setValue] = useState('');
   return (
-    <form onSubmit={e => { e.preventDefault(); onSend(value); setValue(''); }} className="flex justify-between items-center">
+    <form onSubmit={e => {
+      e.preventDefault();
+      console.log('Sending message:', value);
+      onSend(value);
+      setValue('');
+    }} className="flex justify-between items-center">
       <input value={value} onChange={e => setValue(e.target.value)} name="message" className="w-full border-2" />
       <button type="submit">Send</button>
     </form>

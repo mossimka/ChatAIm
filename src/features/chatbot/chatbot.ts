@@ -4,11 +4,10 @@ const cohere = new CohereClient({
     token: "COHERE_API_KEY",
 });
 
-(async () => {
+export async function getCohereResponse(message: string): Promise<string> {
     const chat = await cohere.chat({
         model: "command",
-        message: "Tell me a story about bored programmer in 5 parts!",
+        message,
     });
-
-    console.log(chat.text);
-})();
+    return chat.text;
+}

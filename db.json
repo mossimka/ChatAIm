@@ -1,39 +1,139 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Daniyar",
-        "icon": "CircleUser",
-        "messages": [
-          { "text": "Hi there!", "timestamp": 1717492040000, "sender": "Daniyar" },
-          { "text": "How are you?", "timestamp": 1717492200000, "sender": "Daniyar" },
-          { "text": "I'm fine, thanks!", "timestamp": 1717492260000, "sender": "me" }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "Muslim",
-        "icon": "CircleUser",
-        "messages": [
-          { "text": "Hey!", "timestamp": 1717493000000, "sender": "Muslim" },
-          { "text": "What's up?", "timestamp": 1717493100000, "sender": "me" }
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Ilya",
-        "icon": "CircleUser",
-        "messages": []
-      },
-      {
-        "id": 4,
-        "name": "Akbota",
-        "icon": "CircleUser",
-        "messages": [
-          { "text": "Let's meet tomorrow.", "timestamp": 1717494000000, "sender": "Akbota" },
-          { "text": "Sure, what time?", "timestamp": 1717494060000, "sender": "me" }
-        ]
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": "1",
+      "name": "ChatAIm",
+      "icon": "RobotLoaderPinwheel",
+      "messages": [
+        {
+          "text": "Hello! How can I assist you today?",
+          "timestamp": 1717492000000,
+          "sender": "ChatAIm"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Daniyar",
+      "icon": "CircleUser",
+      "messages": [
+        {
+          "text": "Hi there!",
+          "timestamp": 1717492040000,
+          "sender": "Daniyar"
+        },
+        {
+          "text": "How are you?",
+          "timestamp": 1717492200000,
+          "sender": "Daniyar"
+        },
+        {
+          "text": "I'm fine, thanks!",
+          "timestamp": 1717492260000,
+          "sender": "me"
+        },
+        {
+          "text": "Let's meet today",
+          "timestamp": 1749097155383,
+          "sender": "me"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Muslim",
+      "icon": "CircleUser",
+      "messages": [
+        {
+          "text": "Hey!",
+          "timestamp": 1717493000000,
+          "sender": "Muslim"
+        },
+        {
+          "text": "What's up?",
+          "timestamp": 1717493100000,
+          "sender": "me"
+        },
+        {
+          "text": "Thanks",
+          "timestamp": 1749101702808,
+          "sender": "me"
+        },
+        {
+          "text": "dasds",
+          "timestamp": 1749101745610,
+          "sender": "me"
+        },
+        {
+          "text": "ijjnmjinmnhnuhnhunjk",
+          "timestamp": 1749101763560,
+          "sender": "me"
+        },
+        {
+          "text": "lldfslf",
+          "timestamp": 1749101939698,
+          "sender": "me"
+        },
+        {
+          "text": "lol",
+          "timestamp": 1749101997916,
+          "sender": "me"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Ilya",
+      "icon": "CircleUser",
+      "messages": [
+        {
+          "text": "Hello Ilya!",
+          "timestamp": 1749100847229,
+          "sender": "me"
+        },
+        {
+          "text": "How are you?",
+          "timestamp": 1749100879481,
+          "sender": "me"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Akbota",
+      "icon": "CircleUser",
+      "messages": [
+        {
+          "text": "Let's meet tomorrow.",
+          "timestamp": 1717494000000,
+          "sender": "Akbota"
+        },
+        {
+          "text": "Sure, what time?",
+          "timestamp": 1717494060000,
+          "sender": "me"
+        },
+        {
+          "text": "I'll busy",
+          "timestamp": 1749101071603,
+          "sender": "me"
+        },
+        {
+          "text": "lol",
+          "timestamp": 1749101230030,
+          "sender": "me"
+        },
+        {
+          "text": "lol",
+          "timestamp": 1749101361827,
+          "sender": "me"
+        },
+        {
+          "text": "lol",
+          "timestamp": 1749101500039,
+          "sender": "me"
+        }
+      ]
+    }
+  ]
+}
