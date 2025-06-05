@@ -46,7 +46,7 @@ export function AppSidebar() {
 
   // Add new human chat
   const createHumanChat = () => {
-    const newChat = {
+    const newChat: User = {
       id: String(lastId + 1),
       name: "New Chat",
       icon: "CircleUser",
@@ -58,12 +58,13 @@ export function AppSidebar() {
 
   // Add new AI chat
   const createAIChat = () => {
-    const newChat = {
+    const newChat: User = {
       id: String(lastId + 1),
       name: "New AI Chat",
       icon: "LoaderPinwheel",
       role: "ai",
     };
+
     setUsers((prev: User[]) => [...prev, newChat]);
     localStorage.setItem(`chat_messages_${newChat.id}`, JSON.stringify([]));
   };

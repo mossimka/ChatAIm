@@ -25,7 +25,7 @@ export function Chat() {
   const parsedUserId = Number(userId);
 
   // Load all users from localStorage
-  const [users, setUsers] = useState(() => {
+  const [users] = useState(() => {
     const saved = localStorage.getItem("users");
     return saved ? (JSON.parse(saved) as User[]) : [];
   });
