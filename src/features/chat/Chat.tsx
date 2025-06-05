@@ -11,6 +11,15 @@ interface Message {
   sender: string;
 }
 
+type User = { 
+  id: string;
+  name: string;
+  icon: "CircleUser" | "LoaderPinwheel";
+  role: "ai" | "human";
+};
+
+
+
 export function Chat() {
   const { userId } = useParams<{ userId: string }>();
   const parsedUserId = Number(userId);
@@ -18,7 +27,7 @@ export function Chat() {
   // Load all users from localStorage
   const [users, setUsers] = useState(() => {
     const saved = localStorage.getItem("users");
-    return saved ? JSON.parse(saved) : [];
+    return saved ? (JSON.parse(saved) as User[]) : [];
   });
 
 
@@ -29,7 +38,7 @@ export function Chat() {
   // Load messages from localStorage or empty array
   const [messages, setMessages] = useState<Message[]>(() => {
     const saved = localStorage.getItem(`chat_messages_${parsedUserId}`);
-    return saved ? JSON.parse(saved) : [];
+    return saved ? (JSON.parse(saved) as Message[]) : [];
   });
 
   // When user or userId changes, reload messages

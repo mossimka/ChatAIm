@@ -17,9 +17,17 @@ import { Button } from "./ui/button";
 import { Search } from "./ui/search";
 import { useState, useEffect } from "react";
 
+type User = { 
+  id: string;
+  name: string;
+  icon: "CircleUser" | "LoaderPinwheel";
+  role: "ai" | "human";
+};
+
+
 export function AppSidebar() {
   // Load chats from localStorage or start empty
-  const [users, setUsers] = useState(() => {
+  const [users, setUsers] = useState<User[]>(() => {
     const saved = localStorage.getItem("users");
     return saved ? JSON.parse(saved) : [];
   });
@@ -34,7 +42,7 @@ export function AppSidebar() {
   }, [users]);
 
   // Get last ID to assign new IDs
-  const lastId = users.length ? Math.max(...users.map(u => Number(u.id))) : 0;
+  const lastId = users.length ? Math.max(...users.map((u: User) => Number(u.id))) : 0;
 
   // Add new human chat
   const createHumanChat = () => {
@@ -44,7 +52,7 @@ export function AppSidebar() {
       icon: "CircleUser",
       role: "human",
     };
-    setUsers(prev => [...prev, newChat]);
+    setUsers((prev: User[]) => [...prev, newChat]);
     localStorage.setItem(`chat_messages_${newChat.id}`, JSON.stringify([]));
   };
 
@@ -56,12 +64,12 @@ export function AppSidebar() {
       icon: "LoaderPinwheel",
       role: "ai",
     };
-    setUsers(prev => [...prev, newChat]);
+    setUsers((prev: User[]) => [...prev, newChat]);
     localStorage.setItem(`chat_messages_${newChat.id}`, JSON.stringify([]));
   };
 
   // Filter chats based on toggle and search
-  const filteredUsers = users.filter(user => {
+  const filteredUsers = users.filter((user: User) => {
     const matchesRole = (showAI && user.role === "ai") || (showHuman && user.role === "human");
     const matchesSearch = user.name.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesRole && matchesSearch;
