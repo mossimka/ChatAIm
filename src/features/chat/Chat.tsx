@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
-import { useUsers } from '../../shared/use-users';
-import getAIResponse from '../chatbot/chatbot'; // ✅ import
+import getAIResponse from '../chatbot/chatbot';
 
 interface Message {
   text: string;
@@ -15,52 +14,67 @@ interface Message {
 export function Chat() {
   const { userId } = useParams<{ userId: string }>();
   const parsedUserId = Number(userId);
-  const { data: users, isLoading, isError } = useUsers();
 
-  const user = users?.find(u => Number(u.id) === parsedUserId);
-  const isAI = user?.role == "ai";
-  const [messages, setMessages] = useState<Message[]>([]);
+  // Load all users from localStorage
+  const [users, setUsers] = useState(() => {
+    const saved = localStorage.getItem("users");
+    return saved ? JSON.parse(saved) : [];
+  });
 
+
+  // Find current user/chat
+  const user = users.find(u => u.id === userId);
+  const isAI = user?.role === "ai";
+
+  // Load messages from localStorage or empty array
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const saved = localStorage.getItem(`chat_messages_${parsedUserId}`);
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // When user or userId changes, reload messages
   useEffect(() => {
-    if (user) {
-      setMessages(user.messages);
-    }
-  }, [user]);
+    const saved = localStorage.getItem(`chat_messages_${parsedUserId}`);
+    setMessages(saved ? JSON.parse(saved) : []);
+  }, [parsedUserId]);
+
+  const saveMessagesToLocalStorage = (msgs: Message[]) => {
+    localStorage.setItem(`chat_messages_${parsedUserId}`, JSON.stringify(msgs));
+  };
 
   const handleSend = async (text: string) => {
+    if (!user) return;
+
     const userMessage: Message = {
       text,
       timestamp: Date.now(),
       sender: 'me',
     };
 
-    const updatedMessages: Message[] = [...messages, userMessage];
+    let updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    saveMessagesToLocalStorage(updatedMessages);
 
     if (isAI) {
       try {
         const aiText = await getAIResponse(text);
+
         const aiMessage: Message = {
           text: aiText ?? "Sorry, I couldn't generate a response.",
           timestamp: Date.now(),
           sender: 'ai',
         };
-        updatedMessages.push(aiMessage);
+
+        updatedMessages = [...updatedMessages, aiMessage];
+        setMessages(updatedMessages);
+        saveMessagesToLocalStorage(updatedMessages);
       } catch (err) {
         console.error('AI response error:', err);
       }
     }
-
-    setMessages(updatedMessages);
-
-    await fetch(`http://localhost:3000/users/${parsedUserId}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: updatedMessages }),
-    });
   };
 
-  if (isLoading) return <div>Loading chat...</div>;
-  if (isError || !user) return <div>Error loading user chat.</div>;
+  if (!user) return <div>Chat not found.</div>;
 
   return (
     <div className="w-full max-w-3xl h-full flex flex-col p-4">
