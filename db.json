@@ -166,19 +166,6 @@
       "icon": "LoaderPinwheel",
       "role": "ai",
       "messages": []
-    },
-    {
-      "id": "7",
-      "name": "New Chat",
-      "icon": "CircleUser",
-      "role": "human",
-      "messages": [
-        {
-          "text": "Hello bro",
-          "timestamp": 1749110023449,
-          "sender": "me"
-        }
-      ]
     }
   ]
 }

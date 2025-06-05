@@ -11,7 +11,7 @@ type User = {
   name: string;
   icon: string;
   messages: Message[];
-  role: 'user' | 'ai'; 
+  role: 'human' | 'ai'; 
 };
 
 const API_URL = 'http://localhost:3000';

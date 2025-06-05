@@ -8,7 +8,7 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarHeader,
-  SidebarGroupLabel,
+  SidebarGroupLabel,  
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuItem,
@@ -16,6 +16,7 @@ import {
 } from "./ui/sidebar";
 import { Switch } from "./ui/switch"
 import { Button } from "./ui/button";
+import { Search } from "./ui/search";
 import { createChat } from '@/shared/create-chat';
 import { useUsers } from '@/shared/use-users';
 import { useState } from "react";
@@ -51,6 +52,13 @@ export function AppSidebar() {
     },
   });
 
+  const [searchTerm, setSearchTerm] = useState("");
+    const filteredUsers = users?.filter(user => {
+    const matchesRole = (showAI && user.role === "ai") || (showHuman && user.role === "human");
+    const matchesSearch = user.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesRole && matchesSearch;
+  }) ?? [];
+
 
   if (isLoading) return <Sidebar><div>Loading chats...</div></Sidebar>;
   if (isError || !users) return <Sidebar><div>Error loading chats</div></Sidebar>;
@@ -60,6 +68,7 @@ export function AppSidebar() {
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup>
+          <Search value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
           <div className="flex justify-around">
             <div><Switch checked={showAI} onCheckedChange={() => setShowAI(prev => !prev)}/> AI</div>
             <div><Switch checked={showHuman} onCheckedChange={() => setShowHuman(prev => !prev)}/> Human</div>
@@ -73,7 +82,7 @@ export function AppSidebar() {
           </Button>
           <SidebarGroupContent>
             <SidebarMenu>
-              {users.filter(user => (showAI && user.role === "ai") || (showHuman && user.role === "human")).map(user => (
+              {filteredUsers.filter(user => (showAI && user.role === "ai") || (showHuman && user.role === "human")).map(user => (
                 <SidebarMenuItem key={user.id}>
                   <SidebarMenuButton asChild>
                     <Link to={`/chat/${user.id}`} className="flex items-center gap-2">
