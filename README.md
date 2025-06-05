@@ -1,6 +1,9 @@
 # ChatAIm
 Basic chatting app where you can create chats and chat with ai, all messages and chats store at local storage. In this app i'm using gemini api
 
+You can visit it here:
+https://chataim.vercel.app/
+
 
 # React + TypeScript + Vite
 
