@@ -3,12 +3,33 @@
     {
       "id": "1",
       "name": "ChatAIm",
-      "icon": "RobotLoaderPinwheel",
+      "icon": "LoaderPinwheel",
+      "role": "ai",
       "messages": [
         {
           "text": "Hello! How can I assist you today?",
           "timestamp": 1717492000000,
           "sender": "ChatAIm"
+        },
+        {
+          "text": "HI how are you?",
+          "timestamp": 1749106732730,
+          "sender": "me"
+        },
+        {
+          "text": "I am doing well, thank you for asking! How are you today?\n",
+          "timestamp": 1749106733885,
+          "sender": "ai"
+        },
+        {
+          "text": "How to be happy if you have a lot of uncompleted homeworks?",
+          "timestamp": 1749106808793,
+          "sender": "me"
+        },
+        {
+          "text": "Having a pile of unfinished homework can definitely feel overwhelming, but it doesn't have to completely steal your joy! Here's a breakdown of how to be happier *while* dealing with that mountain, combining practical steps with mindset shifts:\n\n**1. Acknowledge and Accept (Without Self-Judgment):**\n\n*   **Avoid the Shame Spiral:** The first step is to stop beating yourself up. We all get behind sometimes. Acknowledge that you have a lot of homework, but recognize that this is a situation you can improve.\n*   **Identify the Reason:** Briefly consider why you fell behind. Was it procrastination, difficulty understanding the material, feeling overwhelmed, or something else? This isn't about blaming yourself, but understanding the root cause helps prevent it in the future.\n\n**2. Break It Down & Prioritize:**\n\n*   **Inventory:** Make a complete list of *all* your uncompleted assignments. Write down the subject, assignment name, due date, and estimated time to complete each one.\n*   **Prioritize Ruthlessly:**\n    *   **Due Dates:** Focus on the assignments due soonest first.\n    *   **Weight:**  Give precedence to assignments that are worth a significant portion of your grade (e.g., an exam or a large project).\n    *   **Difficulty:** Consider tackling something easier first to build momentum. If something is particularly difficult, break it down into smaller, more manageable chunks.\n*   **Chunk It:** Take one or two subjects to focus on at a time.\n\n**3. Create a Realistic Schedule:**\n\n*   **Honest Time Estimates:** Be realistic about how long each assignment will *actually* take. Add a little buffer time in case you get stuck.\n*   **Allocate Time Blocks:** Schedule specific time slots for working on each assignment.  Write it down! Even if it's just 30 minutes at a time.\n*   **Incorporate Breaks:**  Build in short breaks (5-10 minutes) every hour to stretch, walk around, or do something you enjoy. Longer breaks (30 minutes - 1 hour) are important too, especially after completing a challenging task.\n\n**4. Implement Strategies for Productivity:**\n\n*   **Minimize Distractions:** Put your phone on silent, close unnecessary tabs on your computer, and find a quiet workspace.\n*   **Use the Pomodoro Technique:** Work in focused bursts (e.g., 25 minutes of work, 5 minutes of break).\n*   **Study with a Friend (Wisely):**  If you can stay focused and work collaboratively, studying with a friend can be motivating. However, if it leads to more socializing than studying, it's not a good idea.\n*   **Ask for Help:** Don't be afraid to ask your teacher, a classmate, or a tutor for help if you're struggling with the material.  It's far better to ask for help than to fall further behind.\n\n**5. Focus on Progress, Not Perfection:**\n\n*   **Celebrate Small Wins:** Acknowledge and celebrate each assignment you complete, no matter how small. This reinforces positive behavior and keeps you motivated.\n*   **Don't Aim for Perfection (Initially):** Focus on getting the work done first. You can always go back and refine it later if time allows.  \"Done is better than perfect\" in this situation.\n*   **Remember Your \"Why\":** Remind yourself *why* you're pursuing your education. Connect your homework to your long-term goals. This can provide a sense of purpose and motivation.\n\n**6. Take Care of Yourself:**\n\n*   **Sleep:** Getting enough sleep is crucial for focus, concentration, and overall well-being. Prioritize sleep, even when you feel overwhelmed.\n*   **Nutrition:** Eat healthy meals and snacks to fuel your brain and body. Avoid sugary drinks and processed foods, which can lead to energy crashes.\n*   **Exercise:** Even a short walk or some stretching can help clear your head and reduce stress.\n*   **Mindfulness/Relaxation:** Practice mindfulness, meditation, or deep breathing exercises to manage stress and anxiety.\n*   **Do Something You Enjoy:** Make time for activities you find enjoyable, even if it's just for a short period each day.  This helps you recharge and prevents burnout.\n\n**7. Cultivate a Positive Mindset:**\n\n*   **Practice Gratitude:** Even in the midst of stress, try to focus on the things you're grateful for. This can help shift your perspective and boost your mood.\n*   **Positive Self-Talk:** Replace negative thoughts with positive affirmations. Instead of saying \"I'll never get this done,\" try saying \"I can break this down into manageable steps and make progress.\"\n*   **Perspective:** Remind yourself that this is a temporary situation.  It won't last forever.\n*   **Forgive Yourself:**  Don't dwell on past mistakes or procrastination.  Focus on making positive changes moving forward.\n\n**In short, feeling happy when you're buried in homework is about taking control, breaking down the problem, taking care of yourself, and cultivating a positive perspective.** It's not about ignoring the work, but about managing it in a way that doesn't completely overwhelm you. Good luck!\n",
+          "timestamp": 1749106816181,
+          "sender": "ai"
         }
       ]
     },
@@ -16,6 +37,7 @@
       "id": "2",
       "name": "Daniyar",
       "icon": "CircleUser",
+      "role": "human",
       "messages": [
         {
           "text": "Hi there!",
@@ -43,6 +65,7 @@
       "id": "3",
       "name": "Muslim",
       "icon": "CircleUser",
+      "role": "human",
       "messages": [
         {
           "text": "Hey!",
@@ -85,6 +108,7 @@
       "id": "4",
       "name": "Ilya",
       "icon": "CircleUser",
+      "role": "human",
       "messages": [
         {
           "text": "Hello Ilya!",
@@ -102,6 +126,7 @@
       "id": "5",
       "name": "Akbota",
       "icon": "CircleUser",
+      "role": "human",
       "messages": [
         {
           "text": "Let's meet tomorrow.",
@@ -131,6 +156,26 @@
         {
           "text": "lol",
           "timestamp": 1749101500039,
+          "sender": "me"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "New Chat",
+      "icon": "LoaderPinwheel",
+      "role": "ai",
+      "messages": []
+    },
+    {
+      "id": "7",
+      "name": "New Chat",
+      "icon": "CircleUser",
+      "role": "human",
+      "messages": [
+        {
+          "text": "Hello bro",
+          "timestamp": 1749110023449,
           "sender": "me"
         }
       ]

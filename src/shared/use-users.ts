@@ -9,9 +9,9 @@ type Message = {
 type User = {
   id: string;
   name: string;
-  gender: string;
   icon: string;
   messages: Message[];
+  role: 'user' | 'ai'; 
 };
 
 const API_URL = 'http://localhost:3000';

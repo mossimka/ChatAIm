@@ -20,7 +20,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCas esInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
     "baseUrl": ".",

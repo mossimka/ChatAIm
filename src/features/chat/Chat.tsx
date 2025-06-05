@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import { useUsers } from '../../shared/use-users';
+import getAIResponse from '../chatbot/chatbot'; // ✅ import
 
 interface Message {
   text: string;
@@ -15,11 +16,9 @@ export function Chat() {
   const { userId } = useParams<{ userId: string }>();
   const parsedUserId = Number(userId);
   const { data: users, isLoading, isError } = useUsers();
-  console.log("userId:", userId);
-  console.log("parsedUserId:", parsedUserId);
-  console.log("users:", users);
 
   const user = users?.find(u => Number(u.id) === parsedUserId);
+  const isAI = user?.role == "ai";
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
@@ -29,32 +28,35 @@ export function Chat() {
   }, [user]);
 
   const handleSend = async (text: string) => {
-    const newMessage: Message = {
+    const userMessage: Message = {
       text,
       timestamp: Date.now(),
       sender: 'me',
     };
 
-    const updatedMessages = [...messages, newMessage];
+    const updatedMessages: Message[] = [...messages, userMessage];
+
+    if (isAI) {
+      try {
+        const aiText = await getAIResponse(text);
+        const aiMessage: Message = {
+          text: aiText ?? "Sorry, I couldn't generate a response.",
+          timestamp: Date.now(),
+          sender: 'ai',
+        };
+        updatedMessages.push(aiMessage);
+      } catch (err) {
+        console.error('AI response error:', err);
+      }
+    }
+
     setMessages(updatedMessages);
 
-    try {
-      const res = await fetch(`http://localhost:3000/users/${parsedUserId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ messages: updatedMessages }),
-      });
-
-      if (!res.ok) {
-        throw new Error('Failed to update messages');
-      }
-
-      console.log('Message saved to db.json');
-    } catch (err) {
-      console.error('Error saving message:', err);
-    }
+    await fetch(`http://localhost:3000/users/${parsedUserId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: updatedMessages }),
+    });
   };
 
   if (isLoading) return <div>Loading chat...</div>;

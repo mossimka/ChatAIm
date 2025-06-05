@@ -1,13 +1,12 @@
-import { CohereClient } from "cohere-ai";
+import { GoogleGenAI } from '@google/genai';
 
-const cohere = new CohereClient({
-    token: "COHERE_API_KEY",
-});
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GENAI_API_KEY });
 
-export async function getCohereResponse(message: string): Promise<string> {
-    const chat = await cohere.chat({
-        model: "command",
-        message,
-    });
-    return chat.text;
+export default async function getAIResponse(prompt: string) {
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.0-flash',
+    contents: prompt,
+  });
+
+  return response.text;
 }
