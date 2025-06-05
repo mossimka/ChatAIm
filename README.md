@@ -1,3 +1,7 @@
+# ChatAIm
+Basic chatting app where you can create chats and chat with ai, all messages and chats store at local storage. In this app i'm using gemini api
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
